@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/anaca/OneDrive/�rea de Trabalho/Carol/ENGENHARIA DE SOFTWARE/DEV PROJECTS/FREELAS/**)",
+      "PowerShell(git init)",
+      "PowerShell(git remote add origin https://github.com/CarolRibeiro-S/katia_floris.git)",
+      "PowerShell(git add .)",
+      "PowerShell(git commit -m \"Landing page do curso - M�todo F.I.O.S.\")"
+    ]
+  }
+}
