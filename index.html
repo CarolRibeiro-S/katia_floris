@@ -257,15 +257,30 @@
     .testi-grid{grid-template-columns:1fr;}
   }
   @media(max-width:680px){
-    body{font-size:16px;}
+    body{font-size:16px;padding-bottom:80px;}
     .sec{padding:64px 0;}
+    .sec-head{margin-bottom:28px;}
     .pain-grid,.modules,.two-col{grid-template-columns:1fr;}
     .pillars{grid-template-columns:1fr 1fr;}
     .hero{padding:64px 0 72px;}
+    .course-name{margin:18px 0 16px;}
+    .pain-note{font-size:1.2rem;}
     .sticky-cta{display:flex;}
     .sprig{display:none;}
   }
-  @media(max-width:420px){.pillars{grid-template-columns:1fr;}}
+  @media(max-width:480px){
+    .offer-inner{padding:28px 18px;}
+    .price .now{font-size:2.6rem;}
+  }
+  @media(max-width:420px){
+    .pillars{grid-template-columns:1fr;}
+    .sec{padding:48px 0;}
+    .hero{padding:52px 0 60px;}
+    .final{padding:60px 0;}
+  }
+  @media(max-width:360px){
+    .wrap{padding:0 16px;}
+  }
   @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}.btn:hover{transform:none;}}
 </style>
 </head>
