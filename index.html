@@ -62,23 +62,28 @@
   .lead{font-size:1.18rem;color:var(--mist);}
 
   .btn{
-    display:inline-flex;align-items:center;gap:.6em;justify-content:center;
-    font-family:var(--body);font-weight:700;font-size:1.02rem;letter-spacing:.02em;
-    color:#241B07;text-decoration:none;cursor:pointer;border:none;
-    background:linear-gradient(180deg,var(--gold-lt),var(--gold) 55%,var(--gold-dp));
-    padding:18px 38px;border-radius:50px;
-    box-shadow:0 10px 30px rgba(201,162,75,.30), inset 0 1px 0 rgba(255,255,255,.45);
-    transition:transform .18s ease, box-shadow .18s ease;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.03em;
+    color:#FBF3D8;text-decoration:none;border:1.5px solid rgba(236,208,138,.78);cursor:pointer;
+    padding:16px 42px;border-radius:11px;position:relative;overflow:hidden;
+    background:linear-gradient(180deg,rgba(236,208,138,.42),rgba(201,162,75,.24));
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+    box-shadow:0 8px 24px rgba(201,162,75,.32), inset 0 1px 0 rgba(255,255,255,.35);
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
   }
-  .btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(201,162,75,.45), inset 0 1px 0 rgba(255,255,255,.5);}
-  .btn:focus-visible{outline:3px solid var(--cream);outline-offset:3px;}
+  .btn:hover{
+    transform:translateY(-2px);
+    background:linear-gradient(180deg,rgba(236,208,138,.52),rgba(201,162,75,.32));
+    box-shadow:0 12px 30px rgba(201,162,75,.42), inset 0 1px 0 rgba(255,255,255,.4);
+  }
+  .btn:focus-visible{ outline:2px solid #F4EEDD; outline-offset:3px; }
+
   @keyframes kfPulse{
-    0%,100%{box-shadow:0 10px 30px rgba(201,162,75,.30),0 0 0 0 rgba(201,162,75,.45);}
-    50%{box-shadow:0 16px 40px rgba(201,162,75,.55),0 0 0 12px rgba(201,162,75,0);}
+    0%,100%{ box-shadow:0 8px 24px rgba(201,162,75,.30), inset 0 1px 0 rgba(255,255,255,.35); }
+    50%{ box-shadow:0 10px 30px rgba(201,162,75,.5), inset 0 1px 0 rgba(255,255,255,.35); }
   }
   .hero-cta .btn,
   .offer-card .btn,
-  .topbar .btn,
   .sticky-cta .btn{
     animation:kfPulse 2.4s ease-in-out infinite;
   }
@@ -96,10 +101,10 @@
     border-bottom:1px solid var(--line-gold);
   }
   .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
-  .brand{font-family:var(--serif);font-size:1.35rem;color:var(--cream);letter-spacing:.02em;font-weight:600;}
-  .brand span{display:block;font-family:var(--display);font-size:.52rem;letter-spacing:.34em;color:var(--gold);margin-top:-2px;}
-  .topbar .btn{padding:11px 24px;font-size:.86rem;}
-  @media(max-width:640px){.topbar .btn{display:none;}}
+  .brand{font-family:var(--serif);font-size:1.35rem;color:var(--cream);letter-spacing:.02em;font-weight:600;display:flex;align-items:center;}
+  .brand img{height:34px;width:auto;display:block;}
+  .topbar .btn{ padding:10px 24px; font-size:.84rem; border-radius:9px; }
+  @media(max-width:640px){.topbar .btn{display:none;}.brand img{height:26px;}}
 
   /* ---------- hero ---------- */
   .hero{position:relative;padding:84px 0 92px;text-align:center;overflow:hidden;}
@@ -134,6 +139,7 @@
   /* ---------- sections ---------- */
   section{position:relative;}
   .sec{padding:84px 0;}
+  .sec.learn-top{padding-top:84px;}
   .sec-cream{background:linear-gradient(180deg,var(--cream),var(--cream-2));color:var(--ink);}
   .sec-cream .kicker{color:var(--gold-dp);}
   .sec-cream h2,.sec-cream h3{color:#234029;}
@@ -206,7 +212,7 @@
   .expert h2{margin-bottom:6px;color:#234029;}
   .expert .role{font-family:var(--display);font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dp);margin-bottom:18px;}
   .expert p{color:var(--ink-soft);margin-bottom:14px;}
-  .expert .sig{font-family:var(--serif);font-style:italic;font-size:1.9rem;color:var(--gold-dp);margin-top:8px;}
+  .expert .sig{display:block;width:240px;max-width:100%;height:auto;margin-top:8px;}
 
   /* testimonials */
   .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
@@ -377,6 +383,22 @@
     font-size:.82rem;
     line-height:1.7;
   }
+  .footer-bottom .footer-credit{
+    display:block;
+    margin-top:10px;
+    color:rgba(244,238,221,.76);
+    font-size:.78rem;
+  }
+  .footer-bottom a{
+    color:rgba(231,198,131,.85);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  .footer-bottom a:hover{
+    color:var(--gold);
+    border-color:rgba(231,198,131,.5);
+  }
   @media(max-width:860px){
     .footer-grid{grid-template-columns:1fr;gap:24px;text-align:center;}
     .footer-booking{padding:24px 20px;}
@@ -406,6 +428,7 @@
   @media(max-width:680px){
     body{font-size:16px;padding-bottom:80px;}
     .sec{padding:64px 0;}
+    .sec.learn-top{padding-top:100px;}
     .sec-head{margin-bottom:28px;}
     .pain-grid,.modules,.two-col,.how-grid{grid-template-columns:1fr;}
     .pillars{grid-template-columns:1fr 1fr;}
@@ -437,7 +460,7 @@
 <!-- TOP BAR -->
 <div class="topbar">
   <div class="wrap">
-    <div class="brand">Katia Floris<span>Tricologia Clínica</span></div>
+    <div class="brand"><img src="assinatura-katia-dourada.svg" alt="Katia Floris" style="height:34px;width:auto;display:block;"></div>
     <a href="https://pay.hotmart.com/Q106672400E" target="_blank" rel="noopener" class="btn">Garantir minha vaga</a>
   </div>
 </div>
@@ -531,7 +554,7 @@
 </section>
 
 <!-- LEARN -->
-<section class="sec sec-cream" style="padding-top:0">
+<section class="sec sec-cream learn-top">
   <div class="wrap rv">
     <div class="sec-head">
       <span class="kicker">O que você vai aprender</span>
@@ -626,7 +649,7 @@
         <p>Com mais de 25 anos dedicados à saúde capilar, Katia Floris de Andrade é tricologista clínica, fitoterapeuta e cosmetóloga — além de professora, palestrante e consultora. Especialista em Tricologia Clínica Integrativa, ela une ciência, natureza e tecnologia para gerar resultados reais.</p>
         <p>Formada em Visagismo e Terapia Capilar (Anhembi Morumbi), com pós-graduações em Cosmetologia (SENAC) e Fitoterapia (FAMART) e especializações em Tricologia (SBEC) e Laserterapia (USP), Katia forma profissionais em todo o Brasil e desenvolve protocolos e fitocosméticos capilares.</p>
         <p>Neste curso, ela reúne o que ensina em pós-graduações e treinamentos num método claro e aplicável — para você elevar seus atendimentos com um cuidado capilar baseado em evidências.</p>
-        <div class="sig">Katia Floris</div>
+        <img src="assinatura-katia-escura.svg" alt="Katia Floris" style="width:240px;max-width:70%;height:auto;display:block;">
       </div>
     </div>
   </div>
@@ -700,7 +723,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <h3>Katia Floris</h3>
+        <img src="assinatura-katia-dourada.svg" alt="Katia Floris" style="width:200px;max-width:60%;height:auto;display:block;">
         <span>Tricologia Clínica</span>
         <p>Ciência, natureza e organização para transformar a saúde capilar.</p>
       </div>
@@ -721,7 +744,9 @@
         <a href="https://online.maapp.com.br/Katiatricologista" target="_blank" rel="noopener" class="btn-secondary">Agendar avaliação</a>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 Katia Floris — Tricologia Clínica. Todos os direitos reservados. Método F.I.O.S.®</div>
+    <div class="footer-bottom">© 2026 Katia Floris — Tricologia Clínica. Todos os direitos reservados. Método F.I.O.S.®
+      <span class="footer-credit">Site desenvolvido por <a href="https://carolribeiros.com.br" target="_blank" rel="noopener">Carol Ribeiro</a></span>
+    </div>
   </div>
 </footer>
 
