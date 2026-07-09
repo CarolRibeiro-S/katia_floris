@@ -185,10 +185,10 @@
     font-size:.82rem;padding:20px;position:relative;overflow:hidden;
   }
   .expert-photo::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 0%,rgba(201,162,75,.14),transparent 70%);}
-  .expert h2{margin-bottom:6px;}
-  .expert .role{font-family:var(--display);font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
-  .expert p{color:var(--mist);margin-bottom:14px;}
-  .expert .sig{font-family:var(--serif);font-style:italic;font-size:1.9rem;color:var(--gold-lt);margin-top:8px;}
+  .expert h2{margin-bottom:6px;color:#234029;}
+  .expert .role{font-family:var(--display);font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dp);margin-bottom:18px;}
+  .expert p{color:var(--ink-soft);margin-bottom:14px;}
+  .expert .sig{font-family:var(--serif);font-style:italic;font-size:1.9rem;color:var(--gold-dp);margin-top:8px;}
 
   /* testimonials */
   .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
@@ -487,7 +487,9 @@
 <section class="sec sec-cream">
   <div class="wrap rv">
     <div class="expert">
-      <img src="katia-foto.png" alt="Katia Floris, tricologista clínica" class="expert-photo" style="object-fit:cover;object-position:top;">
+      <div class="expert-photo" style="padding:0;background:none;">
+        <img src="katia-foto.png" alt="Katia Floris, tricologista clínica" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+      </div>
       <div>
         <span class="kicker">A especialista</span>
         <h2 class="h-md" style="margin-top:8px">Katia Floris</h2>
