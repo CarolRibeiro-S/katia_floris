@@ -227,6 +227,25 @@
   .faq details[open] summary::after{transform:rotate(45deg);}
   .faq p{padding:0 4px 20px;color:var(--mist-dim);font-size:.98rem;}
 
+  /* how it works */
+  .how-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:820px;margin:0 auto;}
+  .how-card{display:flex;gap:18px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid var(--line-gold);border-radius:16px;padding:24px 22px;}
+  .how-icon{width:44px;height:44px;flex-shrink:0;color:var(--gold);}
+  .how-card h3{font-family:var(--serif);font-size:1.1rem;color:var(--cream);margin-bottom:6px;line-height:1.2;}
+  .how-card p{font-size:.95rem;color:var(--mist-dim);line-height:1.55;margin:0;}
+
+  /* timeline */
+  .timeline{max-width:640px;margin:0 auto;display:flex;flex-direction:column;}
+  .tl-item{display:flex;gap:22px;align-items:flex-start;}
+  .tl-track{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:14px;}
+  .tl-dot{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold-lt),var(--gold) 60%,var(--gold-dp));box-shadow:0 0 10px rgba(201,162,75,.45);}
+  .tl-line{width:2px;flex:1;min-height:36px;background:linear-gradient(180deg,var(--gold),rgba(201,162,75,.15));}
+  .tl-item:last-child .tl-line{display:none;}
+  .tl-body{padding-bottom:30px;}
+  .tl-date{font-family:var(--display);font-size:1.15rem;font-weight:700;color:var(--gold-dp);letter-spacing:.04em;}
+  .tl-when{font-family:var(--display);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:3px 0 8px;}
+  .tl-mod{font-family:var(--serif);font-size:1.12rem;color:#234029;font-weight:600;line-height:1.3;}
+
   /* final cta */
   .final{text-align:center;padding:96px 0;background:radial-gradient(70% 80% at 50% 0%,rgba(44,107,67,.32),transparent 60%),linear-gradient(180deg,#0A1D13,#0C2418);}
   .final h2{margin-bottom:18px;}
@@ -260,7 +279,7 @@
     body{font-size:16px;padding-bottom:80px;}
     .sec{padding:64px 0;}
     .sec-head{margin-bottom:28px;}
-    .pain-grid,.modules,.two-col{grid-template-columns:1fr;}
+    .pain-grid,.modules,.two-col,.how-grid{grid-template-columns:1fr;}
     .pillars{grid-template-columns:1fr 1fr;}
     .hero{padding:64px 0 72px;}
     .course-name{margin:18px 0 16px;}
@@ -302,12 +321,13 @@
     <span class="kicker">Método F.I.O.S.®</span>
     <h1 class="h-xl"><span class="gold">A ciência da natureza</span><br>por trás de cabelos fortes e saudáveis.</h1>
     <p class="lead">Aprenda, com 25 anos de tricologia clínica, a cuidar dos seus fios pela raiz — onde a saúde capilar realmente começa.</p>
-    <div class="course-name">Curso online · <b>[NOME DO CURSO]</b> · Acesso imediato e vitalício</div>
+    <div class="course-name">Turma ao vivo · <b>[NOME DO CURSO]</b> · Início 27 de julho</div>
     <div class="hero-cta">
-      <a href="#oferta" class="btn">Quero transformar meus cabelos <small>acesso imediato por R$ 29</small></a>
+      <a href="#oferta" class="btn">Quero garantir minha vaga <small>turma ao vivo · início 27/07</small></a>
       <div class="trustline">
         <span><span class="star">★★★★★</span> [+500] alunas</span>
-        <span>· Acesso vitalício</span>
+        <span>· Início 27/07</span>
+        <span>· Vagas limitadas</span>
         <span>· Garantia de 7 dias</span>
       </div>
     </div>
@@ -354,6 +374,34 @@
   </div>
 </section>
 
+<!-- HOW IT WORKS -->
+<section class="sec sec-green">
+  <div class="wrap rv">
+    <div class="sec-head">
+      <span class="kicker">Como funciona</span>
+      <h2 class="h-lg" style="color:var(--cream)">Ao vivo, com gravação e material — do início ao fim</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-card">
+        <svg class="how-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="9" width="26" height="20" rx="4" stroke="currentColor" stroke-width="2"/><path d="M29 17l10-5v16l-10-5V17z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <div><h3>Turma ao vivo pelo Google Meet</h3><p>Encontros toda segunda-feira às 20h, com 1h30 de duração. Você aprende em tempo real e tira dúvidas direto com a Katia.</p></div>
+      </div>
+      <div class="how-card">
+        <svg class="how-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="17" stroke="currentColor" stroke-width="2"/><path d="M18 15l12 7-12 7V15z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <div><h3>Gravado e disponível na área de membros</h3><p>Cada encontro é gravado e liberado logo depois. Quem faltou assiste quando puder. Quem foi, revê quantas vezes quiser.</p></div>
+      </div>
+      <div class="how-card">
+        <svg class="how-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M10 5h18l8 8v28H10V5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M28 5v9h9" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M16 20h12M16 27h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <div><h3>Materiais entregues ao se inscrever</h3><p>Ao garantir sua vaga, você já recebe o cronograma completo, os slides de cada módulo e o link dos encontros — tudo no mesmo lugar.</p></div>
+      </div>
+      <div class="how-card">
+        <svg class="how-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="4" y="5" width="36" height="24" rx="3" stroke="currentColor" stroke-width="2"/><path d="M16 15h12M16 21h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="37" r="4" stroke="currentColor" stroke-width="2"/><path d="M18 33l-4 7M26 33l4 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <div><h3>Certificado de conclusão</h3><p>Ao completar todos os módulos, você recebe o certificado — reconhecimento do seu comprometimento com a saúde capilar.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- LEARN -->
 <section class="sec sec-cream" style="padding-top:0">
   <div class="wrap rv">
@@ -362,12 +410,50 @@
       <h2 class="h-lg">Um plano completo, do diagnóstico ao resultado</h2>
     </div>
     <div class="modules">
-      <div class="module"><span class="num">01</span><div><h3>Entenda o seu couro cabeludo</h3><p>Como identificar a real causa da queda, da oleosidade e do enfraquecimento dos fios.</p></div></div>
-      <div class="module"><span class="num">02</span><div><h3>O poder dos fitocosméticos</h3><p>Por que ativos vegetais cuidam, enquanto cosméticos comuns apenas disfarçam.</p></div></div>
-      <div class="module"><span class="num">03</span><div><h3>A rotina certa para o seu caso</h3><p>Como montar protocolos simples em casa, com método e na ordem que funciona.</p></div></div>
-      <div class="module"><span class="num">04</span><div><h3>Da raiz ao resultado</h3><p>O que esperar em cada fase e como manter cabelos fortes, saudáveis e cheios de vida.</p></div></div>
+      <div class="module"><span class="num">01</span><div><h3>Fundamentos da Fitoterapia Capilar</h3><p>A ciência por trás dos ativos vegetais e como eles agem no fio e no couro cabeludo.</p></div></div>
+      <div class="module"><span class="num">02</span><div><h3>Biologia do Couro Cabeludo e do Fio</h3><p>Entenda a estrutura capilar para tratar a causa, não só o sintoma.</p></div></div>
+      <div class="module"><span class="num">03</span><div><h3>Óleos e Manteigas Vegetais</h3><p>Como escolher, combinar e aplicar para nutrir e fortalecer os fios.</p></div></div>
+      <div class="module"><span class="num">04</span><div><h3>Óleos Essenciais e Extratos Vegetais</h3><p>Ativos concentrados com ação terapêutica no couro cabeludo.</p></div></div>
+      <div class="module"><span class="num">05</span><div><h3>Ativos por Mecanismo de Ação</h3><p>Cada ativo no lugar certo: anti-inflamatório, estimulante, hidratante, selante.</p></div></div>
+      <div class="module"><span class="num">06</span><div><h3>Aplicação Clínica e Protocolos Integrados</h3><p>Como montar o protocolo personalizado com tudo que você aprendeu.</p></div></div>
     </div>
-    <p class="center" style="margin-top:24px;font-size:.9rem;color:var(--gold-dp)">[Ajuste os módulos conforme o conteúdo real do seu curso.]</p>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="sec sec-cream">
+  <div class="wrap rv">
+    <div class="sec-head">
+      <span class="kicker">Cronograma da turma</span>
+      <h2 class="h-lg">Seis encontros, seis transformações</h2>
+      <p>Toda segunda-feira, das 20h às 21h30, a partir de 27 de julho.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body"><div class="tl-date">27/07</div><div class="tl-when">Segunda-feira · 20h – 21h30</div><div class="tl-mod">Módulo 1 — Fundamentos da Fitoterapia Capilar</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body"><div class="tl-date">03/08</div><div class="tl-when">Segunda-feira · 20h – 21h30</div><div class="tl-mod">Módulo 2 — Biologia do Couro Cabeludo e do Fio</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body"><div class="tl-date">10/08</div><div class="tl-when">Segunda-feira · 20h – 21h30</div><div class="tl-mod">Módulo 3 — Óleos e Manteigas Vegetais</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body"><div class="tl-date">17/08</div><div class="tl-when">Segunda-feira · 20h – 21h30</div><div class="tl-mod">Módulo 4 — Óleos Essenciais e Extratos Vegetais</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body"><div class="tl-date">24/08</div><div class="tl-when">Segunda-feira · 20h – 21h30</div><div class="tl-mod">Módulo 5 — Ativos por Mecanismo de Ação</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body"><div class="tl-date">31/08</div><div class="tl-when">Segunda-feira · 20h – 21h30</div><div class="tl-mod">Módulo 6 — Aplicação Clínica e Protocolos Integrados</div></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -430,22 +516,22 @@
 <!-- OFFER -->
 <section class="sec sec-green" id="oferta" style="padding-top:30px">
   <div class="wrap rv">
-    <div class="sec-head"><span class="kicker">Sua vaga</span><h2 class="h-lg" style="color:var(--cream)">Comece hoje a cuidar da raiz</h2></div>
+    <div class="sec-head"><span class="kicker">Garanta sua vaga</span><h2 class="h-lg" style="color:var(--cream)">Turma ao vivo · Início <span class="gold">27 de julho</span></h2></div>
     <div class="offer-card">
       <div class="offer-inner">
-        <span class="offer-tag">Oferta de lançamento</span>
-        <h3>[Nome do Curso] — Método F.I.O.S.®</h3>
+        <span class="offer-tag">Turma ao vivo — Início 27/07</span>
+        <h3>[NOME DO CURSO] — Método F.I.O.S.®</h3>
         <ul class="incl">
-          <li><span class="ck">✓</span> Curso online completo, com acesso imediato</li>
-          <li><span class="ck">✓</span> Acesso vitalício — assista quantas vezes quiser</li>
-          <li><span class="ck">✓</span> Assista do celular, tablet ou computador</li>
+          <li><span class="ck">✓</span> 6 encontros ao vivo pelo Google Meet (9h no total)</li>
+          <li><span class="ck">✓</span> Gravações de todas as aulas liberadas na área de membros</li>
+          <li><span class="ck">✓</span> Slides e materiais de cada módulo</li>
+          <li><span class="ck">✓</span> Cronograma e link dos encontros enviados ao inscrever</li>
           <li><span class="ck">✓</span> Certificado de conclusão</li>
-          <li><span class="ck">✓</span> Bônus: [guia/checklist de cuidado em casa]</li>
         </ul>
         <div class="price">
-          <span class="from">de R$ [97]</span>
-          <span class="now">R$ 29<small>,00</small></span>
-          <span class="split">ou em até 3x no cartão</span>
+          <span class="from">de [VALOR DO CURSO]</span>
+          <span class="now" style="font-size:2rem">[VALOR DO CURSO]</span>
+          <span class="split">[condições de parcelamento]</span>
         </div>
         <a href="[LINK-DO-CHECKOUT-HOTMART]" class="btn">Quero garantir minha vaga</a>
       </div>
@@ -462,8 +548,8 @@
   <div class="wrap rv">
     <div class="sec-head"><span class="kicker">Dúvidas frequentes</span><h2 class="h-lg">Antes de começar</h2></div>
     <div class="faq" style="--cream:#234029">
-      <details><summary>Como recebo o acesso ao curso?</summary><p>Assim que o pagamento é confirmado, você recebe o acesso por e-mail e já pode começar a assistir, na hora.</p></details>
-      <details><summary>Por quanto tempo posso assistir?</summary><p>O acesso é vitalício. Você assiste no seu ritmo, quantas vezes quiser, quando quiser.</p></details>
+      <details><summary>Como entro nos encontros ao vivo?</summary><p>Ao se inscrever, você recebe por e-mail o link do Google Meet, o cronograma completo e os slides — tudo antes do primeiro encontro, em 27/07.</p></details>
+      <details><summary>E se eu não puder ir a um encontro ao vivo?</summary><p>Sem problema. Cada encontro é gravado e liberado na área de membros logo depois — você assiste quando puder e revê quantas vezes quiser.</p></details>
       <details><summary>Preciso de algum conhecimento prévio?</summary><p>Não. O curso foi pensado para qualquer pessoa que queira cuidar melhor dos próprios cabelos, do zero.</p></details>
       <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. Se não fizer sentido para você, é só pedir o reembolso e devolvemos tudo.</p></details>
       <details><summary>Posso assistir pelo celular?</summary><p>Sim. O curso funciona no celular, tablet e computador, onde for mais confortável para você.</p></details>
@@ -477,7 +563,7 @@
     <span class="kicker">Natureza que cura · Ciência que comprova</span>
     <h2 class="h-lg" style="color:var(--cream);margin-top:16px"><span class="gold">Seus cabelos</span> merecem começar pela raiz.</h2>
     <p class="lead">Dê o primeiro passo hoje, com quem entende de saúde capilar de verdade.</p>
-    <a href="#oferta" class="btn">Quero me inscrever por R$ 29</a>
+    <a href="#oferta" class="btn">Quero garantir minha vaga agora</a>
   </div>
 </section>
 
@@ -493,7 +579,7 @@
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta">
-  <div class="px">R$ 29 <small>de R$ [97]</small></div>
+  <div class="px">[VALOR DO CURSO] <small style="text-decoration:none">Início 27/07 · Vagas limitadas</small></div>
   <a href="#oferta" class="btn">Garantir vaga</a>
 </div>
 
