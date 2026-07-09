@@ -72,6 +72,16 @@
   }
   .btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(201,162,75,.45), inset 0 1px 0 rgba(255,255,255,.5);}
   .btn:focus-visible{outline:3px solid var(--cream);outline-offset:3px;}
+  @keyframes kfPulse{
+    0%,100%{box-shadow:0 10px 30px rgba(201,162,75,.30),0 0 0 0 rgba(201,162,75,.45);}
+    50%{box-shadow:0 16px 40px rgba(201,162,75,.55),0 0 0 12px rgba(201,162,75,0);}
+  }
+  .hero-cta .btn,
+  .offer-card .btn,
+  .topbar .btn,
+  .sticky-cta .btn{
+    animation:kfPulse 2.4s ease-in-out infinite;
+  }
   .btn small{display:block;font-weight:500;font-size:.72rem;opacity:.8;letter-spacing:.04em;}
   .btn-ghost{
     background:transparent;color:var(--gold-lt);border:1px solid var(--line-gold);
@@ -102,7 +112,7 @@
   }
   .hero .wrap{position:relative;z-index:2;}
   .hero .kicker{margin-bottom:18px;display:inline-block;}
-  .hero h1{margin:0 auto 22px;max-width:16ch;}
+  .hero h1{margin:0 auto 22px;max-width:22ch;font-size:clamp(2.4rem,5.2vw,4.2rem);}
   .hero .lead{max-width:54ch;margin:0 auto 14px;color:var(--mist);font-size:1.22rem;}
   .course-name{
     font-family:var(--display);font-weight:600;letter-spacing:.04em;text-transform:uppercase;
@@ -179,12 +189,20 @@
   /* expert */
   .expert{display:grid;grid-template-columns:300px 1fr;gap:44px;align-items:center;max-width:920px;margin:0 auto;}
   .expert-photo{
-    aspect-ratio:3/4;border-radius:18px;border:1px solid var(--line-gold);
-    background:linear-gradient(160deg,var(--pine-3),var(--pine));
-    display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mist-dim);
-    font-size:.82rem;padding:20px;position:relative;overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--mist-dim);
+    font-size:.82rem;
+    padding:0;
+    position:relative;
+    overflow:visible;
+    background:none;
+    border:none;
+    border-radius:0;
+    box-shadow:none;
   }
-  .expert-photo::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 0%,rgba(201,162,75,.14),transparent 70%);}
   .expert h2{margin-bottom:6px;color:#234029;}
   .expert .role{font-family:var(--display);font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dp);margin-bottom:18px;}
   .expert p{color:var(--ink-soft);margin-bottom:14px;}
@@ -199,11 +217,12 @@
 
   /* offer */
   .offer-card{
-    max-width:560px;margin:0 auto;background:linear-gradient(180deg,var(--pine-3),var(--pine-2));
+    max-width:460px;margin:0 auto;background:linear-gradient(180deg,var(--pine-3),var(--pine-2));
     border:1px solid var(--gold);border-radius:24px;padding:8px;
     box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 0 6px rgba(201,162,75,.08);
   }
-  .offer-inner{border:1px solid var(--line-gold);border-radius:18px;padding:40px 34px;text-align:center;}
+  .offer-inner{border:1px solid var(--line-gold);border-radius:18px;padding:32px 26px;text-align:center;}
+  .price{margin:8px 0 6px;text-align:center;}
   .offer-tag{display:inline-block;font-family:var(--display);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--pine);background:linear-gradient(180deg,var(--gold-lt),var(--gold));padding:6px 16px;border-radius:30px;margin-bottom:22px;font-weight:700;}
   .offer-card h3{font-family:var(--serif);font-size:1.7rem;color:var(--cream);margin-bottom:20px;}
   .incl{list-style:none;text-align:left;max-width:380px;margin:0 auto 26px;display:flex;flex-direction:column;gap:11px;}
@@ -252,8 +271,117 @@
   .final .lead{max-width:50ch;margin:0 auto 30px;}
 
   /* footer */
-  footer{background:#081A10;border-top:1px solid var(--line-gold);padding:38px 0;text-align:center;color:var(--mist-dim);font-size:.84rem;}
-  footer .brand{justify-content:center;margin-bottom:10px;display:inline-block;}
+  footer{
+    background:#081A10;
+    border-top:1px solid rgba(201,162,75,.16);
+    color:var(--cream);
+    padding:56px 0 24px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:32px;
+    align-items:flex-start;
+    max-width:1080px;
+    margin:0 auto;
+  }
+  .footer-brand h3{
+    font-family:var(--serif);
+    font-size:2rem;
+    margin:0 0 .5rem;
+    color:var(--cream);
+  }
+  .footer-brand span{
+    display:block;
+    font-family:var(--display);
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:1rem;
+    font-size:.84rem;
+  }
+  .footer-brand p{
+    max-width:360px;
+    color:var(--mist-dim);
+    line-height:1.8;
+    margin:0;
+  }
+  .footer-links span,
+  .footer-booking span{
+    display:block;
+    font-family:var(--display);
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    font-size:.78rem;
+    color:var(--gold);
+    margin-bottom:.95rem;
+  }
+  .footer-links a{
+    display:inline-flex;
+    align-items:center;
+    gap:.75em;
+    color:var(--cream);
+    text-decoration:none;
+    margin-bottom:.9rem;
+    transition:color .2s ease;
+  }
+  .footer-links a svg{
+    width:1.2rem;
+    height:1.2rem;
+    fill:rgba(244,238,221,.85);
+    stroke:none;
+  }
+  .footer-links a:hover{
+    color:var(--cream);
+  }
+  .footer-links a:hover svg{
+    fill:rgba(255,255,255,.95);
+    filter:drop-shadow(0 0 8px rgba(201,162,75,.25));
+  }
+  .footer-booking{
+    border:1px solid rgba(201,162,75,.22);
+    border-radius:20px;
+    padding:28px 24px;
+  }
+  .footer-booking p{
+    color:var(--mist-dim);
+    line-height:1.9;
+    margin:0 0 18px;
+  }
+  .footer-booking .btn-secondary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.5em;
+    padding:12px 28px;
+    font-family:var(--body);
+    font-weight:700;
+    font-size:.95rem;
+    color:var(--gold);
+    background:transparent;
+    border:1px solid var(--gold);
+    border-radius:50px;
+    text-decoration:none;
+    transition:background .2s ease, color .2s ease;
+  }
+  .footer-booking .btn-secondary:hover{
+    background:rgba(201,162,75,.12);
+    color:var(--cream);
+  }
+  .footer-bottom{
+    margin-top:40px;
+    padding-top:24px;
+    border-top:1px solid rgba(201,162,75,.16);
+    text-align:center;
+    color:var(--mist-dim);
+    font-size:.82rem;
+    line-height:1.7;
+  }
+  @media(max-width:860px){
+    .footer-grid{grid-template-columns:1fr;gap:24px;text-align:center;}
+    .footer-booking{padding:24px 20px;}
+    .footer-links a{justify-content:center;}
+  }
 
   /* sticky mobile cta */
   .sticky-cta{
@@ -300,8 +428,9 @@
   @media(max-width:360px){
     .wrap{padding:0 16px;}
   }
-  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}.btn:hover{transform:none;}}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}.btn:hover{transform:none;}.hero-cta .btn,.offer-card .btn,.topbar .btn,.sticky-cta .btn{animation:none;}}
 </style>
+<link rel="stylesheet" href="premium.css">
 </head>
 <body>
 
@@ -309,7 +438,7 @@
 <div class="topbar">
   <div class="wrap">
     <div class="brand">Katia Floris<span>Tricologia Clínica</span></div>
-    <a href="#oferta" class="btn">Garantir minha vaga</a>
+    <a href="https://pay.hotmart.com/Q106672400E" target="_blank" rel="noopener" class="btn">Garantir minha vaga</a>
   </div>
 </div>
 
@@ -319,11 +448,11 @@
   <svg class="sprig tr" viewBox="0 0 200 120" aria-hidden="true"><path d="M10 110 C60 100 120 70 190 10 M70 86 C70 70 80 56 96 50 M96 64 C96 48 108 36 124 32 M124 46 C124 32 136 22 150 20"/></svg>
   <div class="wrap">
     <span class="kicker">Método F.I.O.S.®</span>
-    <h1 class="h-xl"><span class="gold">A ciência da natureza</span><br>por trás de cabelos fortes e saudáveis.</h1>
-    <p class="lead">Aprenda, com 25 anos de tricologia clínica, a cuidar dos seus fios pela raiz — onde a saúde capilar realmente começa.</p>
-    <div class="course-name">Turma ao vivo · <b>[NOME DO CURSO]</b> · Início 27 de julho</div>
+    <h1 class="h-xl"><span class="gold">A ciência da natureza</span><br>por trás de cabelos saudáveis.</h1>
+    <p class="lead">O método que dá estrutura aos seus protocolos: ciência, ativos vegetais e organização para tratar couro cabeludo e fibra capilar ao mesmo tempo — da raiz às pontas.</p>
+    <div class="course-name">Turma ao vivo · <b>Fitoterapia Aplicada à Tricologia Clínica</b> · Início 27 de julho</div>
     <div class="hero-cta">
-      <a href="#oferta" class="btn">Quero garantir minha vaga <small>turma ao vivo · início 27/07</small></a>
+      <a href="https://pay.hotmart.com/Q106672400E" target="_blank" rel="noopener" class="btn">Quero garantir minha vaga <small>turma ao vivo · início 27/07</small></a>
       <div class="trustline">
         <span><span class="star">★★★★★</span> [+500] alunas</span>
         <span>· Início 27/07</span>
@@ -487,8 +616,8 @@
 <section class="sec sec-cream">
   <div class="wrap rv">
     <div class="expert">
-      <div class="expert-photo" style="padding:0;background:none;">
-        <img src="katia-foto.png" alt="Katia Floris, tricologista clínica" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+      <div class="expert-photo">
+        <img src="katia-foto.png" alt="Katia Floris, tricologista clínica" style="width:100%;height:auto;object-fit:contain;object-position:top center;display:block;border:none;border-radius:0;">
       </div>
       <div>
         <span class="kicker">A especialista</span>
@@ -506,13 +635,12 @@
 <!-- TESTIMONIALS -->
 <section class="sec sec-green">
   <div class="wrap rv">
-    <div class="sec-head"><span class="kicker">Resultados que falam por si</span><h2 class="h-lg" style="color:var(--cream)">Quem aplicou, transformou</h2></div>
+    <div class="sec-head"><span class="kicker">Avaliações de clientes</span><h2 class="h-lg" style="color:var(--cream)">O que dizem sobre a Katia</h2></div>
     <div class="testi-grid">
-      <div class="testi"><div class="stars">★★★★★</div><p>“Em poucas semanas minha queda diminuiu muito. Finalmente entendi o que meu cabelo precisava.”</p><div class="who">[Nome do aluno]</div></div>
-      <div class="testi"><div class="stars">★★★★★</div><p>“Conteúdo direto e fácil de aplicar. Meu couro cabeludo nunca esteve tão saudável.”</p><div class="who">[Nome do aluno]</div></div>
-      <div class="testi"><div class="stars">★★★★★</div><p>“Valeu cada centavo. Parei de gastar com produtos errados e passei a cuidar do jeito certo.”</p><div class="who">[Nome do aluno]</div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p>“Fiz transição capilar e a terapia com a Katia ajudou muito no crescimento. Tive uma queda significativa e, com duas sessões de tratamento, a queda parou totalmente. Trabalho de excelência, do tratamento aos produtos capilares.”</p><div class="who">Rosangela Cristina</div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p>“Excelente profissional, obtive um ótimo resultado no meu cabelo, que estava com queda. Super recomendo.”</p><div class="who">Wygna Jorge</div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p>“Excelente clínica de tricologia capilar e estética. Profissionais atenciosos, lugar aconchegante e acolhedor.”</p><div class="who">Mayara Cecilia</div></div>
     </div>
-    <p class="center" style="margin-top:22px;font-size:.86rem;color:var(--mist-dim)">[Troque pelos depoimentos reais — com print ou foto, convertem ainda mais.]</p>
   </div>
 </section>
 
@@ -523,7 +651,7 @@
     <div class="offer-card">
       <div class="offer-inner">
         <span class="offer-tag">Turma ao vivo — Início 27/07</span>
-        <h3>[NOME DO CURSO] — Método F.I.O.S.®</h3>
+        <h3>Fitoterapia Aplicada à Tricologia Clínica — Método F.I.O.S.®</h3>
         <ul class="incl">
           <li><span class="ck">✓</span> 6 encontros ao vivo pelo Google Meet (9h no total)</li>
           <li><span class="ck">✓</span> Gravações de todas as aulas liberadas na área de membros</li>
@@ -532,12 +660,13 @@
           <li><span class="ck">✓</span> Certificado de conclusão</li>
         </ul>
         <div class="price">
-          <span class="from" style="text-decoration:none;font-size:.84rem">6 módulos avulsos: <span style="text-decoration:line-through">R$ 582</span></span>
-          <span class="now">R$ 397<small>,00</small></span>
-          <span class="split" style="color:var(--gold-lt);font-weight:600">↳ economize R$ 185 no curso completo</span>
-          <span class="split">em até 12x no cartão</span>
+          <div class="price-main" style="display:inline-flex;align-items:flex-end;gap:.35em;justify-content:center;">
+            <span class="now">R$ 397</span>
+            <small style="color:var(--cream);font-size:.75em;font-weight:500;line-height:1.1;">à vista</small>
+          </div>
+          <div class="price-sub" style="margin-top:.7em;color:var(--gold-lt);font-weight:600;white-space:nowrap;">ou 12x de R$ 41,06</div>
         </div>
-        <a href="[LINK-DO-CHECKOUT-HOTMART]" class="btn">Quero garantir minha vaga</a>
+        <a href="https://pay.hotmart.com/Q106672400E" target="_blank" rel="noopener" class="btn">Quero garantir minha vaga</a>
       </div>
     </div>
   </div>
@@ -562,24 +691,44 @@
     <span class="kicker">Natureza que cura · Ciência que comprova</span>
     <h2 class="h-lg" style="color:var(--cream);margin-top:16px"><span class="gold">Seus cabelos</span> merecem começar pela raiz.</h2>
     <p class="lead">Dê o primeiro passo hoje, com quem entende de saúde capilar de verdade.</p>
-    <a href="#oferta" class="btn">Quero garantir minha vaga agora</a>
+    <a href="https://pay.hotmart.com/Q106672400E" target="_blank" rel="noopener" class="btn">Quero garantir minha vaga agora</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
-    <div class="brand" style="color:var(--cream)">Katia Floris<span>Tricologia Clínica</span></div>
-    <p>Método F.I.O.S.® · Ciência, natureza e organização para transformar resultados.</p>
-    <p style="margin-top:8px;opacity:.6">© 2026 Katia Floris. Todos os direitos reservados.</p>
-    <p style="margin-top:12px;opacity:.5;font-size:.78rem">Desenvolvido por <a href="https://www.carolribeiros.com.br" target="_blank" rel="noopener noreferrer" style="color:var(--gold-lt);text-decoration:none;border-bottom:1px solid rgba(236,208,138,.35);padding-bottom:1px;transition:opacity .2s">Carol Ribeiro</a></p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Katia Floris</h3>
+        <span>Tricologia Clínica</span>
+        <p>Ciência, natureza e organização para transformar a saúde capilar.</p>
+      </div>
+      <div class="footer-links">
+        <span>Contato e redes</span>
+        <a href="https://www.instagram.com/katia_floris" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          @katia_floris
+        </a>
+        <a href="https://wa.me/5511982695995" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Fale no WhatsApp
+        </a>
+      </div>
+      <div class="footer-booking">
+        <span>Atendimento clínico presencial</span>
+        <p>Prefere um cuidado individual? Agende sua avaliação com a Katia.</p>
+        <a href="https://online.maapp.com.br/Katiatricologista" target="_blank" rel="noopener" class="btn-secondary">Agendar avaliação</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Katia Floris — Tricologia Clínica. Todos os direitos reservados. Método F.I.O.S.®</div>
   </div>
 </footer>
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta">
   <div class="px">R$ 397 <small style="text-decoration:none">Início 27/07 · Vagas limitadas</small></div>
-  <a href="#oferta" class="btn">Garantir vaga</a>
+  <a href="https://pay.hotmart.com/Q106672400E" target="_blank" rel="noopener" class="btn">Garantir vaga</a>
 </div>
 
 <script>
@@ -589,5 +738,6 @@
   },{threshold:.12});
   document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 </script>
+<script src="premium.js"></script>
 </body>
 </html>

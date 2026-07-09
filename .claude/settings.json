@@ -5,7 +5,12 @@
       "PowerShell(git init)",
       "PowerShell(git remote add origin https://github.com/CarolRibeiro-S/katia_floris.git)",
       "PowerShell(git add .)",
-      "PowerShell(git commit -m \"Landing page do curso - M�todo F.I.O.S.\")"
+      "PowerShell(git commit -m \"Landing page do curso - M�todo F.I.O.S.\")",
+      "PowerShell(git branch -M main)",
+      "PowerShell(git push -u origin main)",
+      "PowerShell(git add index.html)",
+      "PowerShell(git push)",
+      "PowerShell(git add index.html katia-foto.png)"
     ]
   }
 }

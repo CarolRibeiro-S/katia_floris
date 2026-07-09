@@ -1,0 +1,88 @@
+/* ============================================================
+   CAMADA PREMIUM — Katia Floris (aditiva, não altera conteúdo)
+   Realça: textura, brilho, movimento e profundidade.
+   ============================================================ */
+
+/* 1) Textura de grão sutil — dá "toque" tátil de material caro */
+body::before{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.045;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* 2) Brilho dourado que "varre" os títulos com gradiente (.gold) */
+.gold{
+  background-size:220% auto;
+  animation:kfSheen 7s linear infinite;
+}
+@keyframes kfSheen{to{background-position:220% center;}}
+
+/* 3) Reflexo de luz que passa pelos botões no hover */
+.btn{position:relative;overflow:hidden;}
+.btn::after{
+  content:"";position:absolute;top:0;left:-130%;width:60%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:skewX(-20deg);transition:left .7s cubic-bezier(.22,1,.36,1);
+  pointer-events:none;
+}
+.btn:hover::after{left:150%;}
+
+/* 4) Cards que "levantam" ao passar o mouse — sensação premium */
+.pillar,.module,.how-card,.whom,.tl-item,.card{
+  transition:transform .35s cubic-bezier(.22,1,.36,1),
+             box-shadow .35s ease, border-color .35s ease;
+}
+.pillar:hover,.module:hover,.how-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 22px 44px rgba(0,0,0,.35);
+  border-color:rgba(201,162,75,.65);
+}
+
+/* 5) Header que encolhe e ganha sombra ao rolar */
+.topbar{transition:background .3s ease, box-shadow .3s ease;}
+.topbar .wrap{transition:height .3s ease;}
+.topbar.kf-shrunk{box-shadow:0 8px 30px rgba(0,0,0,.45);backdrop-filter:blur(14px);}
+.topbar.kf-shrunk .wrap{height:54px;}
+
+/* 6) Halo dourado atrás do card de oferta (destaca o "momento da compra") */
+.offer-card{position:relative;isolation:isolate;}
+.offer-card::before{
+  content:"";position:absolute;inset:-34px;z-index:-1;
+  background:radial-gradient(60% 55% at 50% 0%, rgba(201,162,75,.28), transparent 72%);
+  filter:blur(18px);pointer-events:none;
+}
+
+/* 7) Filetes dourados de respiro entre blocos de conteúdo */
+.sec + .sec::before,
+section + section::before{
+  content:"";display:block;width:120px;height:1px;margin:0 auto;
+  background:linear-gradient(90deg,transparent,rgba(201,162,75,.5),transparent);
+  transform:translateY(-1px);
+}
+
+/* 8) Revelação mais suave (se você usa .rv para animar ao rolar) */
+.rv{transition:opacity .9s cubic-bezier(.22,1,.36,1),
+              transform .9s cubic-bezier(.22,1,.36,1);}
+
+/* 9) Partículas douradas flutuando no hero (injetadas via premium.js) */
+.kf-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;}
+.kf-particles span{
+  position:absolute;display:block;width:7px;height:7px;border-radius:50%;
+  background:radial-gradient(circle,#ECD08A,rgba(201,162,75,0) 70%);
+  opacity:.5;animation:kfFloat linear infinite;
+}
+@keyframes kfFloat{
+  0%{transform:translateY(30px) scale(var(--s,1));opacity:0;}
+  12%{opacity:.6;}
+  100%{transform:translateY(-140px) scale(var(--s,1));opacity:0;}
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce){
+  .gold{animation:none;}
+  .kf-particles{display:none;}
+  .btn::after{transition:none;}
+}
+
+/* Em telas pequenas, desliga o grão (leveza/performance) */
+@media (max-width:680px){ body::before{display:none;} }
